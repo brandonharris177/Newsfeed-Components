@@ -42,11 +42,12 @@ function createMenu(array) {
   const menu = document.createElement('div');
   const menuList = document.createElement('ul');
 
-  array.ForEach(i =>{
-    let menuItem = document.createElement('li');
-    menuList.appendChiild(menuItem);
-    menuItem.classList.add(li);
-  })
+  // array.ForEach(i =>{
+  //   let menuItem = document.createElement('li');
+  //   menuList.appendChiild(menuItem);
+  //   menuItem.classList.add(li);
+  //   menuItem.textContent = '';
+  // })
 
   menu.classList.add('menu');
   menuList.classList.add('ul');

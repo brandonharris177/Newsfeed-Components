@@ -34,25 +34,24 @@ let menuItems = [
   
 */
 
-window.addEventListener('load', function(event){
+// window.addEventListener('load', function(event){
 
-const menuButton = document.querySelector('.menu-button');
+const header = document.querySelector('.header');
 
-function createMenu(arry) {
+function createMenu(array) {
   const menu = document.createElement('div');
   const menuList = document.createElement('ul');
-  const menuItem = document.createElement(`li`)
 
-  menu.appendChild(menuList);
-  menuList.appendChild(menuItem);
+  array.ForEach(i =>{
+    let menuItem = document.createElement('li');
+    menuList.appendChiild(menuItem);
+    menuItem.classList.add(li);
+  })
 
   menu.classList.add('menu');
   menuList.classList.add('ul');
-  menuItem.classList.add('li');
 
-  const menuButton = document.querySelector('.menu-button')
-  console.log(menuButton);
-
+  const menuButton = document.querySelector('.menu-button');
   menuButton.addEventListener('click', e => {
     console.log('clicked', e.target)
     menu.classList.toggle('menu--open')
@@ -61,6 +60,20 @@ function createMenu(arry) {
   return menu;
 }
 
-menuItems.forEach(event => menuButton.appendChild(createMenu(event)));
+header.prepend(createMenu(menuItems));
 
-});
+// menuItems.forEach(event => menuButton.appendChild(createMenu(event)));
+
+// });
+
+  // const menuItem = document.createElement(`li`);
+
+  // menu.appendChild(menuList);
+  // menuList.appendChild(menuItem);
+  // array.forEach(menuItem => {
+  //   menuList.appendChild(menuItem);
+  // });
+
+  // menuItem.classList.add('li');
+
+  // menuItem.textContent = array.textContent;

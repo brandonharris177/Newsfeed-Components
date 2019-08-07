@@ -112,3 +112,45 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+
+const articles = document.querySelector('.articles')
+console.log(articles);
+
+data.forEach(data => {
+  console.log('creating panel:', data.title)
+  articles.appendChild(createNewsWeek(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
+
+function createNewsWeek(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  const article = document.createElement('div')
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const articleFirstParagraph = document.createElement('p');
+  const articleSecondParagraph = document.createElement('p');
+  const articleThirdParagraph = document.createElement('p');
+  const articleExpandButton = document.createElement('span')
+
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(articleFirstParagraph);
+  article.appendChild(articleSecondParagraph);
+  article.appendChild(articleThirdParagraph);
+  article.appendChild(articleExpandButton);
+  
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  articleFirstParagraph.textContent = firstParagraph;
+  articleSecondParagraph.textContent = secondParagraph;
+  articleThirdParagraph.textContent = thirdParagraph;
+
+  // articleExpandButton.addEventListener('click', e => {
+  //   console.log('clicked', e.target)
+  //   buttonOpen.classList.toggle('hide-btn')
+  //   buttonClose.classList.toggle('hide-btn')
+  //   panelContent.classList.toggle('toggle-on')
+  // })
+
+  return article;
+}
+
+console.log('articles');

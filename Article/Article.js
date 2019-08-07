@@ -113,8 +113,7 @@ const data = [
 
 */
 
-const articles = document.querySelector('.articles')
-console.log(articles);
+const articles = document.querySelector('.articles');
 
 data.forEach(data => {
   console.log('creating panel:', data.title)
@@ -136,19 +135,23 @@ function createNewsWeek(title, date, firstParagraph, secondParagraph, thirdParag
   article.appendChild(articleSecondParagraph);
   article.appendChild(articleThirdParagraph);
   article.appendChild(articleExpandButton);
+
+  article.classList.add('article');
+  articleTitle.classList.add('h2');
+  articleDate.classList.add('date');
+  articleExpandButton.classList.add('expandButton');
   
   articleTitle.textContent = title;
   articleDate.textContent = date;
   articleFirstParagraph.textContent = firstParagraph;
   articleSecondParagraph.textContent = secondParagraph;
   articleThirdParagraph.textContent = thirdParagraph;
+  articleExpandButton.textContent = `Read More`;
 
-  // articleExpandButton.addEventListener('click', e => {
-  //   console.log('clicked', e.target)
-  //   buttonOpen.classList.toggle('hide-btn')
-  //   buttonClose.classList.toggle('hide-btn')
-  //   panelContent.classList.toggle('toggle-on')
-  // })
+  articleExpandButton.addEventListener('click', e => {
+    console.log('clicked', e.target)
+    article.classList.toggle('article-open')
+  })
 
   return article;
 }
